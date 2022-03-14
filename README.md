@@ -1,7 +1,5 @@
 # Build Scan™ quickstart
 
-<img src="http://bit.ly/2JSSCT0" align="right" width="280" />
-
 This is an example project that you can use to experience the [Build Scan™ service of Gradle Enterprise][gradle.com].
 
 It is a small Java project that has the [Gradle Enterprise Gradle Plugin][manual] already applied.
