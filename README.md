@@ -42,15 +42,14 @@ Talk to us on the [Gradle forum][gradle-forum].
 
 If you are completely new to the Gradle Build Tool, start [here][gradle-download].
 
+## License
+
+The Build Scan™ quickstart project is open-source software released under the [Apache 2.0 License][apache-license].
+
+[apache-license]: https://www.apache.org/licenses/LICENSE-2.0.html
 [gradle-download]: https://gradle.org/install/
 [manual]: https://docs.gradle.com/enterprise/gradle-plugin/
 [gradle.com]: https://www.gradle.com
 [terms-of-service]: https://gradle.com/terms-of-service
 [scans.gradle.com]: https://scans.gradle.com/
 [gradle-forum]: https://discuss.gradle.org/c/help-discuss/scans
-
-## License
-
-The Build Scan™ quickstart project is open-source software released under the [Apache 2.0 License][apache-license].
-
-[apache-license]: https://www.apache.org/licenses/LICENSE-2.0.html
