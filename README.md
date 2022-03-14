@@ -1,7 +1,5 @@
 # Build Scan™ quickstart
 
-<img src="http://bit.ly/2JSSCT0" align="right" width="280" />
-
 This is an example project that you can use to experience the [Build Scan™ service of Gradle Enterprise][gradle.com].
 
 It is a small Java project that has the [Gradle Enterprise Gradle Plugin][manual] already applied.
@@ -44,6 +42,11 @@ Talk to us on the [Gradle forum][gradle-forum].
 
 If you are completely new to the Gradle Build Tool, start [here][gradle-download].
 
+## License
+
+The Build Scan™ quickstart project is open-source software released under the [Apache 2.0 License][apache-license].
+
+[apache-license]: https://www.apache.org/licenses/LICENSE-2.0.html
 [gradle-download]: https://gradle.org/install/
 [manual]: https://docs.gradle.com/enterprise/gradle-plugin/
 [gradle.com]: https://www.gradle.com
