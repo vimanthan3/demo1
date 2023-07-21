@@ -1,12 +1,12 @@
-# Build Scan™ quickstart
+# Build Scan® quickstart
 
-This is an example project that you can use to experience the [Build Scan™ service of Gradle Enterprise][gradle.com].
+This is an example project that you can use to experience the [Build Scan® service of Gradle Enterprise][gradle.com].
 
 It is a small Java project that has the [Gradle Enterprise Gradle Plugin][manual] already applied.
 
-## Create a Build Scan™
+## Create a Build Scan®
 
-Follow these simple steps to create and publish a Build Scan™ on [scans.gradle.com][scans.gradle.com]:
+Follow these simple steps to create and publish a Build Scan® on [scans.gradle.com][scans.gradle.com]:
 
 1. Clone this project
 1. Run `./gradlew build --scan`
@@ -17,9 +17,9 @@ The build should end with something similar to:
     Publishing build scan...
     https://gradle.com/s/ria2s2x5oaazq
 
-Follow the green link shown at the end of the build to view your Build Scan™ on [scans.gradle.com][scans.gradle.com].
+Follow the green link shown at the end of the build to view your Build Scan® on [scans.gradle.com][scans.gradle.com].
 
-Note: If you run a build without the `--scan` flag, no Build Scan™ will be created and
+Note: If you run a build without the `--scan` flag, no Build Scan® will be created and
 no information will be sent.
 
 ## Experiment with Build Scans
@@ -34,7 +34,7 @@ Alternatively, enable one of your own builds to produce Build Scans by following
 
 ## Learn more
 
-Read the [Gradle Enterprise Gradle Plugin User Manual][manual] to learn more about the Build Scan™ service of Gradle Enterprise and the Gradle Enterprise Gradle Plugin.
+Read the [Gradle Enterprise Gradle Plugin User Manual][manual] to learn more about the Build Scan® service of Gradle Enterprise and the Gradle Enterprise Gradle Plugin.
 
 ## Need help?
 
