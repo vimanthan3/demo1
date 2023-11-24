@@ -1,8 +1,8 @@
 # Build Scan® quickstart
 
-This is an example project that you can use to experience the [Build Scan® service of Gradle Enterprise][gradle.com].
+This is an example project that you can use to experience the [Build Scan® service of Develocity][gradle.com].
 
-It is a small Java project that has the [Gradle Enterprise Gradle Plugin][manual] already applied.
+It is a small Java project that has the [Develocity Gradle Plugin][manual] already applied.
 
 ## Create a Build Scan®
 
@@ -34,7 +34,7 @@ Alternatively, enable one of your own builds to produce Build Scans by following
 
 ## Learn more
 
-Read the [Gradle Enterprise Gradle Plugin User Manual][manual] to learn more about the Build Scan® service of Gradle Enterprise and the Gradle Enterprise Gradle Plugin.
+Read the [Develocity Gradle Plugin User Manual][manual] to learn more about the Build Scan® service of Develocity and the Develocity Gradle Plugin.
 
 ## Need help?
 
