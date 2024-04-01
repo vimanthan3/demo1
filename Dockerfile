@@ -1,5 +1,5 @@
 FROM openjdk:8
-ADD build/libs/gradle-build-scan-quickstart.jar
+ADD build/libs/gradle-build-scan-quickstart.jar demo.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","gradle-build-scan-quickstart.jar"]
+ENTRYPOINT ["java","-jar","demo.jar"]
 
