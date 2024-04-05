@@ -1,6 +1,5 @@
 plugins {
     id("java")
-    id("com.gradle.enterprise") version "3.16.2"
 }
 
 repositories {
