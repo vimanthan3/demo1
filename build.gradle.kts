@@ -1,7 +1,14 @@
-plugins {
-    id 'java'
-    id 'org.cyclonedx.bom' version '1.8.1'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.cyclonedx:cyclonedx-gradle-plugin:1.8.1"
+    }
 }
+
+apply plugin: 'java'
+apply plugin: 'org.cyclonedx.bom'
 
 repositories {
     mavenCentral()
