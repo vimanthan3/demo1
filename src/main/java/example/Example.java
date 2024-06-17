@@ -1,7 +1,9 @@
-package com.package.app;
+package example;
 
-public class Class {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
+public class Example {
+
+    public static String join(String... args) {
+        return String.join(" ", args);
     }
+
 }
