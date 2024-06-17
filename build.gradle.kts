@@ -1,22 +1,10 @@
 plugins {
-    id 'java'
-    id 'org.cyclonedx.bom' version '1.8.1'
+plugins {
+    id("java")
 }
 
 repositories {
     mavenCentral()
-}
-
-cyclonedxBom {
-    includeConfigs = ["runtimeClasspath"]
-    projectType = "application"
-    schemaVersion = "1.5"
-    destination = file("build/reports")
-    outputName = "bom"
-    outputFormat = "xml"
-    includeBomSerialNumber = false
-    includeLicenseText = false
-    componentVersion = "2.0.0"
 }
 
 dependencies {
@@ -32,16 +20,4 @@ java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(8))
     }
-}
-
-jar {
-    manifest {
-        attributes(
-            'Main-Class': 'com.package.app.Class'
-        )
-    }
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
 }
