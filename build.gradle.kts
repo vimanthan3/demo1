@@ -21,7 +21,7 @@ java {
     }
 }
 
-tasks.register<Jar>("jar") {
+tasks.jar {
     manifest {
         attributes(
             "Main-Class" to "fully.qualified.MainClass"
