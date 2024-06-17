@@ -20,3 +20,8 @@ java {
         languageVersion.set(JavaLanguageVersion.of(8))
     }
 }
+jar {
+  manifest {
+   attributes 'Main-Class': 'fully.qualified.MainClass'
+  }
+}
