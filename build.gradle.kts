@@ -20,8 +20,11 @@ java {
         languageVersion.set(JavaLanguageVersion.of(8))
     }
 }
-jar {
-  manifest {
-   attributes 'Main-Class': 'fully.qualified.MainClass'
-  }
+
+tasks.register<Jar>("jar") {
+    manifest {
+        attributes(
+            "Main-Class" to "fully.qualified.MainClass"
+        )
+    }
 }
