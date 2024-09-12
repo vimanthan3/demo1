@@ -3,9 +3,9 @@ kind: workflow
 name: My workflow
 on:
 
-  pull_request:
+  push:
     branches:
-      - main
+      - devops
 jobs:
   sam:
     steps:
