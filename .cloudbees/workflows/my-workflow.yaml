@@ -2,12 +2,10 @@ apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: My workflow
 on:
-  push:
-    branches:
-      - main
+
   pull_request:
     branches:
-      - devops
+      - main
 jobs:
   sam:
     steps:
