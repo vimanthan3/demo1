@@ -13,9 +13,9 @@ jobs:
   build:
     needs: sam 
     steps:
-      - name: Say hello
-        uses: docker://golang:1.20.3-alpine3.17
+      - name: Build
+        uses: docker://docker://openjdk:17-alpine
         shell: sh
         run: |
-          echo "hello world"
+         ./ gradlew clean build
 
