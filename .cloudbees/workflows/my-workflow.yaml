@@ -14,7 +14,7 @@ jobs:
     needs: sam 
     steps:
       - name: Build
-        uses: docker://docker://openjdk:17-alpine
+        uses: docker://openjdk:17-alpine
         shell: sh
         run: |
          ./ gradlew clean build
