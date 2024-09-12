@@ -4,7 +4,7 @@ name: My workflow
 on:
   pull_request:
     branches:
-      - devops
+      - mian
 jobs:
   sam:
     steps:
