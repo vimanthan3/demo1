@@ -30,8 +30,4 @@ jobs:
         uses: cloudbees-io/findsecbugs-sast-scan-code@v1
         with:
           language: LANGUAGE_JAVA
-  BUILD:
-    steps:
-      - uses: " uses: docker://maven:3-eclipse-temurin-17"
-        name: Build12
-        kind: build
+
