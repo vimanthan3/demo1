@@ -13,10 +13,12 @@ jobs:
   build:
     needs: sam 
     steps:
+      - uses: cloudbees-io/checkout@v1
+        name: checkout
       - name: Build
         uses: docker://maven:3-eclipse-temurin-17
         shell: sh
         run: |
-         chmod -R 777 .
-         ./ gradlew clean build
+          chmod -R 777 .
+          ./gradlew clean build
 
