@@ -5,13 +5,16 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 jobs:
   sam:
     steps:
       - uses: cloudbees-io/checkout@v1
         name: checkout
   build:
-    needs: sam 
+    needs: sam
     steps:
       - uses: cloudbees-io/checkout@v1
         name: checkout
@@ -25,15 +28,8 @@ jobs:
         uses: cloudbees-io/github-security-sast-scan-code@v1
         with:
           token: ${{ secrets.GITHUB_SECRET }}
-          language: "LANGUAGE_JAVA"
+          language: LANGUAGE_JAVA
       - name: Scan with Find Security Bugs
         uses: cloudbees-io/findsecbugs-sast-scan-code@v1
         with:
-          language: "LANGUAGE_JAVA"
-
-
-
-
-
- 
-
+          language: LANGUAGE_JAVA
