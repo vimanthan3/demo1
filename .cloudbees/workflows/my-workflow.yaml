@@ -14,8 +14,9 @@ jobs:
     needs: sam 
     steps:
       - name: Build
-        uses: docker://openjdk:17-alpine
+        uses: docker://maven:3-eclipse-temurin-17
         shell: sh
         run: |
+         chmod -R 777 .
          ./ gradlew clean build
 
