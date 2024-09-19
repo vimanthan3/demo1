@@ -4,8 +4,8 @@ name: My workflow
 on:
   pull_request:
     branches:
-      - vim
       - main
+      - vim
 jobs:
   sam:
     steps:
