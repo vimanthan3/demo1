@@ -6,16 +6,27 @@ on:
     branches:
       - main
       - vim
+
 jobs:
   sam:
     steps:
       - uses: cloudbees-io/checkout@v1
-        name: checkout
+        name: Checkout Pull Request
+      - name: Log Pull Request Data
+        uses: docker://maven:3-eclipse-temurin-17
+        shell: sh
+        run: |
+          echo "Pull Request from branch: ${{ github.event.pull_request.head.ref }}"
+          echo "Base branch: ${{ github.event.pull_request.base.ref }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "PR Author: ${{ github.event.pull_request.user.login }}"
+          echo "PR URL: ${{ github.event.pull_request.html_url }}"
+
   build:
     needs: sam
     steps:
       - uses: cloudbees-io/checkout@v1
-        name: checkout
+        name: Checkout
       - name: Build
         uses: docker://maven:3-eclipse-temurin-17
         shell: sh
@@ -31,6 +42,3 @@ jobs:
         uses: cloudbees-io/findsecbugs-sast-scan-code@v1
         with:
           language: LANGUAGE_JAVA
-
-          
-          
