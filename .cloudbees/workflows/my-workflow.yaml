@@ -3,7 +3,6 @@ kind: workflow
 name: My workflow
 on:
   pull_request:
-
     branches:
       - devops
       - main
