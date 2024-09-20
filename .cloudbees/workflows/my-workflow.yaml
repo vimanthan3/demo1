@@ -1,33 +1,54 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: My workflow
+name: MyWorkflow
 on:
   pull_request:
     branches:
       - main
       - vim
+
 jobs:
-  sam:
+  checkout:
+    runs-on: ubuntu-latest
     steps:
-      - uses: cloudbees-io/checkout@v1
-        name: checkout
-  build:
-    needs: sam
+      - name: Checkout Pull Request
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+  log-pr-details:
+    needs: checkout
+    runs-on: ubuntu-latest
     steps:
-      - uses: cloudbees-io/checkout@v1
-        name: checkout
-      - name: Build
-        uses: docker://maven:3-eclipse-temurin-17
-        shell: sh
+      - uses: actions/checkout@v2
+        name: Log Pull Request Details
         run: |
-          chmod -R 777 .
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "PR Description: ${{ github.event.pull_request.body }}"
+          echo "PR Source Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "PR Target Branch: ${{ github.event.pull_request.base.ref }}"
+          echo "PR URL: ${{ github.event.pull_request.html_url }}"
+          echo "PR Author: ${{ github.event.pull_request.user.login }}"
+
+  build:
+    needs: log-pr-details
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        id: sample
+        uses: actions/checkout@v2
+        run: |
+          chmod +x gradlew
           ./gradlew clean build
-      - name: Scan with GitHub Advanced Security
-        uses: cloudbees-io/github-security-sast-scan-code@v1
+
+  security-scan:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Advanced Security Scan
+        uses: github/codeql-action/init@v1
         with:
-          token: ${{ secrets.GITHUB_SECRET }}
-          language: LANGUAGE_JAVA
-      - name: Scan with Find Security Bugs
-        uses: cloudbees-io/findsecbugs-sast-scan-code@v1
-        with:
-          language: LANGUAGE_JAVA
+          languages: 'java'
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
