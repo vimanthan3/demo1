@@ -1,4 +1,4 @@
-name: PR Dashboard Workflow
+name: automation.cloudbees.io/v1alpha1
 
 on:
   pull_request:
