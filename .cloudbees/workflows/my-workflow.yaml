@@ -1,54 +1,38 @@
-apiVersion: automation.cloudbees.io/v1alpha1
-kind: workflow
-name: MyWorkflow
+name: PR Dashboard Workflow
+
 on:
   pull_request:
     branches:
       - main
-      - devops
+      - vim
 
 jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Pull Request
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-
-  log-pr-details:
-    needs: checkout
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        name: Log Pull Request Details
-        run: |
-          echo "PR Number: ${{ github.event.pull_request.number }}"
-          echo "PR Title: ${{ github.event.pull_request.title }}"
-          echo "PR Description: ${{ github.event.pull_request.body }}"
-          echo "PR Source Branch: ${{ github.event.pull_request.head.ref }}"
-          echo "PR Target Branch: ${{ github.event.pull_request.base.ref }}"
-          echo "PR URL: ${{ github.event.pull_request.html_url }}"
-          echo "PR Author: ${{ github.event.pull_request.user.login }}"
-
-  build:
-    needs: log-pr-details
+  gather-dashboard-data:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        id: sample
         uses: actions/checkout@v2
-        run: |
-          chmod +x gradlew
-          ./gradlew clean build
 
-  security-scan:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: GitHub Advanced Security Scan
-        uses: github/codeql-action/init@v1
+      # Example: Generate a dashboard as an HTML file or image
+        id: sample
+        run: |
+          echo "<html><body><h1>Dashboard Report</h1><p>Code coverage: 85%, Build time: 10 mins</p></body></html>" > dashboard.html
+
+      # Upload the dashboard as an artifact
+      - name: Upload Dashboard
+        uses: actions/upload-artifact@v3
         with:
-          languages: 'java'
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
+          name: dashboard
+          path: dashboard.html
+
+      # Post a link to the artifact in the PR
+      - name: Comment with Dashboard Link
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `### Dashboard Report\n\nA dashboard was generated. You can download it [here](../actions/runs/${context.runId}).`
+            })
